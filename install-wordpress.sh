@@ -26,7 +26,7 @@ sudo apt install -y php php-mysql php-gd php-curl php-mbstring php-xmlrpc php-xm
 echo "Downloading WordPress..."
 curl -O https://wordpress.org/latest.tar.gz
 
-echo "Extracting WordPress archive to /var/www/html/..."
+echo "Extracting WordPress archive to /var/www/$domain/..."
 sudo tar xf latest.tar.gz -C /var/www/$domain/
 
 echo "Changing ownership of WordPress files..."
@@ -41,7 +41,7 @@ sudo tee /etc/apache2/sites-available/$domain.conf > /dev/null <<EOF
 
     DocumentRoot /var/www/$domain/wordpress
 
-    <Directory /var/www/html/wordpress>
+    <Directory /var/www/$domain/wordpress>
         Options Indexes FollowSymLinks MultiViews
         AllowOverride All
         Require all granted
@@ -53,7 +53,7 @@ sudo tee /etc/apache2/sites-available/$domain.conf > /dev/null <<EOF
 </VirtualHost>
 EOF
 
-echo "Virtual host configuration file created at /etc/apache2/sites-available/wp.conf"
+echo "Virtual host configuration file created at /etc/apache2/sites-available/"
 
 echo "Enabling the WordPress site..."
 sudo a2ensite $domain
