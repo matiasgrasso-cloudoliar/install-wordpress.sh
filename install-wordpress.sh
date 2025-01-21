@@ -61,6 +61,19 @@ sudo a2ensite $domain
 echo "Disabling the default site..."
 sudo a2dissite 000-default
 
+echo "Creating MySQL database and user..."
+
+# Execute MySQL commands using Bash variable substitution
+sudo mysql -u root -p -e "
+CREATE DATABASE IF NOT EXISTS \`$databasename\`;
+CREATE USER IF NOT EXISTS '$databaseuser'@'%' IDENTIFIED BY '$dbpassword';
+GRANT ALL PRIVILEGES ON \`$databasename\`.* TO '$databaseuser'@'%';
+FLUSH PRIVILEGES;
+"
+
+echo "Database '$databasename' and user '$databaseuser' created with necessary privileges."
+
+
 
 echo "Renaming WordPress configuration file..."
 sudo mv /var/www/$domain/wordpress/wp-config-sample.php /var/www/$domain/wordpress/wp-config.php
