@@ -21,7 +21,7 @@ sudo ufw allow 'Apache Full'
 sudo ufw reload
 
 echo "Installing PHP and necessary extensions..."
-sudo apt install -y php php-mysql php-gd php-curl php-mbstring php-xmlrpc php-xml php-soap php-zip php-intl
+sudo apt install -y php php-mysql php-gd php-curl php-mbstring php-xmlrpc php-xml php-soap php-zip php-intl mysql-server
 
 echo "Downloading WordPress..."
 curl -O https://wordpress.org/latest.tar.gz
