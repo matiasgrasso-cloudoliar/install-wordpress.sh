@@ -26,6 +26,9 @@ sudo apt install -y php php-mysql php-gd php-curl php-mbstring php-xmlrpc php-xm
 echo "Downloading WordPress..."
 curl -O https://wordpress.org/latest.tar.gz
 
+echo "Creating directory /var/www/$domain/..."
+sudo mkdir -p /var/www/$domain/
+
 echo "Extracting WordPress archive to /var/www/$domain/..."
 sudo tar xf latest.tar.gz -C /var/www/$domain/
 
