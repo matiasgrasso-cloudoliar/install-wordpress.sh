@@ -82,9 +82,9 @@ echo "Renaming WordPress configuration file..."
 sudo mv /var/www/$domain/wordpress/wp-config-sample.php /var/www/$domain/wordpress/wp-config.php
 
 # Modify the wp-config.php file with the provided variables
-sudo sed -i "s/define( 'DB_NAME', 'database_name_here' );/define( 'DB_NAME', '$databasename' );/" /var/www/$domain/wordpress/wp-conf>
+sudo sed -i "s/define( 'DB_NAME', 'database_name_here' );/define( 'DB_NAME', '$databasename' );/" /var/www/$domain/wordpress/wp-config.php
 sudo sed -i "s/define( 'DB_USER', 'username_here' );/define( 'DB_USER', '$databaseuser' );/" /var/www/$domain/wordpress/wp-config.php
-sudo sed -i "s/define( 'DB_PASSWORD', 'password_here' );/define( 'DB_PASSWORD', '$dbpassword' );/" /var/www/$domain/wordpress/wp-con>
+sudo sed -i "s/define( 'DB_PASSWORD', 'password_here' );/define( 'DB_PASSWORD', '$dbpassword' );/" /var/www/$domain/wordpress/wp-config.php
 sudo sed -i "s/define( 'DB_HOST', 'localhost' );/define( 'DB_HOST', '$databasehost' );/" /var/www/$domain/wordpress/wp-config.php
 
 echo "WordPress configuration updated with database variables."
